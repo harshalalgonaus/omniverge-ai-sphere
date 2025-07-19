@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
@@ -20,20 +19,29 @@ export const Navigation = () => {
     <nav className="bg-white/95 backdrop-blur-sm border-b border-border fixed w-full top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <div className="flex-shrink-0">
-            <span className="text-2xl font-bold text-primary">
-              AI OmnivergeSolutions
-            </span>
+          
+          {/* Logo Section */}
+          <div className="flex items-center space-x-4">
+            <img
+              src="/logo.png"
+              alt="OmnivergeSolutions Logo"
+              className="h-10 w-16 sm:h-12 sm:w-20 md:h-16 md:w-25"
+            />
+            <div className="flex-shrink-0">
+              <span className="text-2xl font-bold text-primary">
+                AI OmnivergeSolutions  
+              </span>
+            </div>
           </div>
           
           {/* Desktop Navigation */}
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
+            <div className="ml-36 flex items-baseline space-x-8">
               {navItems.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
-                  className="text-foreground/70 hover:text-foreground px-3 py-2 text-sm font-medium transition-colors"
+                  className="text-foreground/70 hover:text-foreground px-3 py-2 text-sm font-medium transition-colors whitespace-nowrap"
                 >
                   {item.name}
                 </a>
@@ -41,7 +49,8 @@ export const Navigation = () => {
             </div>
           </div>
 
-          <div className="hidden md:block">
+          {/* Desktop CTA Button */}
+          <div className="hidden md:block ml-8">
             <Button className="bg-accent hover:bg-accent/90 text-accent-foreground">
               Let's talk
             </Button>
@@ -56,6 +65,7 @@ export const Navigation = () => {
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
+
         </div>
 
         {/* Mobile Navigation */}
@@ -78,6 +88,7 @@ export const Navigation = () => {
             </div>
           </div>
         )}
+
       </div>
     </nav>
   );
